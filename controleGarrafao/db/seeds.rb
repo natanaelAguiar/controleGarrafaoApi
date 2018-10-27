@@ -9,10 +9,8 @@ end
   client.name = Faker::FunnyName.name
   client.street = Faker::Address.street_name
   client.number = Faker::Address.building_number
-  Random.rand(1..5).times do
-    client_bottle = ClientBottle.new()
-    client_bottle.bottle = Bottle.all.sample
-    client_bottle.quantity = Random.rand(1..5)
+  Bottle.all.each do |bottle|
+    client_bottle = ClientBottle.new(bottle_id: bottle.id, quantity: Random.rand(1..4))
     client.client_bottles << client_bottle
   end
   client.save!

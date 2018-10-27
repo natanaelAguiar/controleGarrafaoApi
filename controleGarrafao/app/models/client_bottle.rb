@@ -4,4 +4,5 @@ class ClientBottle < ApplicationRecord
 
   accepts_nested_attributes_for :client
   accepts_nested_attributes_for :bottle
+
 end
