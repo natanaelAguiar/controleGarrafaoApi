@@ -16,7 +16,6 @@ class ClientsController < ApplicationController
   # POST /clients
   def create
     @client = Client.new(client_params)
-
     if @client.save
       render json: @client, status: :created, location: @client
     else
@@ -46,6 +45,6 @@ class ClientsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def client_params
-      params.require(:client).permit(:name, :street, :number, :rmk, :bottle_id)
+      params.require(:client).permit(:name, :street, :number, :rmk, client_bottles_attributes: [:bottle_id, :quantity])
     end
 end

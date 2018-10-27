@@ -18,6 +18,7 @@ controleGarrafao/storage/*
 !/storage/.keep
 
 .byebug_history
+postgresData/
 
 # Ignore master key for decrypting credentials and more.
 controleGarrafao/config/master.key

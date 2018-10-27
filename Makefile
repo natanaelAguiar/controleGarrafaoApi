@@ -9,4 +9,4 @@ server:
 recreate:
 	rails db:drop db:create db:migrate db:seed
 chown:
-	$(shell sudo chown -R $$USER:$$USER .)
+	sudo chown -R $USER:$USER .

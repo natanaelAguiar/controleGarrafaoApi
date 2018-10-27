@@ -1,8 +1,8 @@
 class Client < ApplicationRecord
   has_many :client_bottles
   has_many :bottles, :through => :client_bottles
+  validates :street,:number,:client_bottles, presence: true
 
-  accepts_nested_attributes_for :bottles
   accepts_nested_attributes_for :client_bottles
 
   def client_bottles_names
@@ -15,7 +15,7 @@ class Client < ApplicationRecord
 
   def as_json(options={})
     super(root: true,
-          except: [:created_at, :updated_at],
+          except: [:created_at, :updated_at, :bottle_id],
           methods:[:client_bottles_names]
           )
   end
