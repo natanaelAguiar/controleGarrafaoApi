@@ -16,6 +16,7 @@ class ClientsController < ApplicationController
   # POST /clients
   def create
     @client = Client.new(client_params)
+
     if @client.save
       render json: @client, status: :created, location: @client
     else
