@@ -1,5 +1,5 @@
 class Client < ApplicationRecord
-  has_many :client_bottles
+  has_many :client_bottles, dependent: :destroy
   has_many :bottles, :through => :client_bottles
   validates :street,:number,:client_bottles, presence: true
 
