@@ -25,6 +25,7 @@ class ClientsController < ApplicationController
 
   # PATCH/PUT /clients/1
   def update
+    byebug
     if @client.update(client_params)
       render json: @client
     else
@@ -45,7 +46,13 @@ class ClientsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def client_params
-      params.require(:client).permit(:name, :street, :number, :rmk,
-              client_bottles_attributes: [:id, :bottle_id, :quantity, :_destroy])
+      params[:client][:client_bottles_attributes] ||= params[:client].delete :client_bottles
+      params.require(:client).permit(:id, :name, :street, :number, :rmk,
+              client_bottles_attributes: [:id, :bottle, :quantity, :_destroy])
+      # if params[:client].key?(:client_bottles)
+      #   byebug
+      #   params[:client][:client_bottles_attributes] = params[:client].delete(:client_bottles)
+      # end
+      # params
     end
 end
