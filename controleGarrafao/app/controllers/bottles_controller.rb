@@ -46,6 +46,7 @@ class BottlesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def bottle_params
+      params[:bottle][:client_bottles_attributes] ||= params[:bottle].delete :client_bottles
       params.require(:bottle).permit(:name,
           client_bottles_attributes: [:id, :quantity, :client_name, :_destroy])
     end
