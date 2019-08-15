@@ -1,9 +1,10 @@
+CONTAINER_USER_HOME = /home/docker/
 docker.build:
 	docker build -t controle-garrafao-api .
 docker.up:
 	docker-compose up
 docker.container:
-	docker run --rm -it --network=controlegarrafaoapi_default -p 3000:3000 -v ${PWD}/controleGarrafao/:/app controle-garrafao-api:latest bash
+	docker run --rm -it --network=controlegarrafaoapi_default -p 3000:3000 -v ${PWD}/controleGarrafao/:$(CONTAINER_USER_HOME)/controleGarrafao/ controle-garrafao-api:latest bash
 server:
 	rails s -p 3000 -b '0.0.0.0'
 recreate:
