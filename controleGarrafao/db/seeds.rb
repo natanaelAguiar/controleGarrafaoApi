@@ -1,3 +1,6 @@
+@user = User.new(:email => 'admin', :password => '12345678', :password_confirmation => '12345678')
+@user.save
+
 bottles = [{name:"Cristal"},{name:"Branco"},{name:"Pet"}]
 
 bottles.each do |bottle|
