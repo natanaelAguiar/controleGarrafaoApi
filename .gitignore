@@ -21,3 +21,4 @@ controleGarrafao/storage/*
 
 # Ignore master key for decrypting credentials and more.
 controleGarrafao/config/master.key
+tmpDatabase/*
