@@ -10,9 +10,6 @@ RUN chmod +x /usr/bin/docker_entrypoint.sh
 RUN useradd -m docker && echo "docker:docker" | \
     chpasswd
 
-RUN echo "docker ALL=(ALL:ALL) NOPASSWD: ALL" | \ 
-    tee -a /etc/sudoers
-
 RUN chown docker:docker /home/docker/
 RUN chown -R docker:docker /home/docker/controleGarrafao
 
