@@ -6,7 +6,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./tmpDatabase:/var/lib/postgresql/data
+      - ${HOME}/controleGarrafaoApiDatabase:/var/lib/postgresql/data
   api:
     image: controle-garrafao-api:latest
     build: .
