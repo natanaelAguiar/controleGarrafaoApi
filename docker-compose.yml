@@ -7,12 +7,12 @@ services:
       - "5432:5432"
     volumes:
       - ${HOME}/controleGarrafaoApiDatabase:/var/lib/postgresql/data
-  # api:
-  #   image: controle-garrafao-api:latest
-  #   build: .
-  #   volumes:
-  #     - ./controleGarrafao:/app
-  #   ports:
-  #     - "3000:3000"
-  #   depends_on:
-  #     - db
+  api:
+    image: controle-garrafao-api:latest
+    build: .
+    volumes:
+      - ./controleGarrafao:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
