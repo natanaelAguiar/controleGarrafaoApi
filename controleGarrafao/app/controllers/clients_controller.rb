@@ -1,4 +1,5 @@
 class ClientsController < ApplicationController
+  before_action :authorize_request
   before_action :set_client, only: [:show, :update, :destroy]
 
   # GET /clients

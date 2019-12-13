@@ -1,4 +1,5 @@
 class BottlesController < ApplicationController
+  before_action :authorize_request
   before_action :set_bottle, only: [:show, :update, :destroy]
 
   # GET /bottles

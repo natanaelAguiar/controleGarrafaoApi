@@ -15,3 +15,7 @@ end
   end
   client.save!
 end
+
+@user = User.new(:email => 'admin@admin.com', :password => '12345678', :name => "admin",
+  :username => "admin")
+@user.save!
